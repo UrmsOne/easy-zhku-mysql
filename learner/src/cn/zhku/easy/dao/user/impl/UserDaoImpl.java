@@ -43,11 +43,10 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getUserByID(long id) throws Exception {
         User user = null;
-        Connection conn = DBUtils.getConnection();
         String sql = "select * from users where id = ?";
         try (ResultSet resultSet = DBUtils.executeQuery(sql, id)) {
             if (resultSet.next()) {
-                System.out.println("=======");
+                // TODO://如何接入Javabean来实现数据库字段与对象属性的自动转换？
                 user = new User();
                 user.setId(resultSet.getLong("id"));
                 user.setUsername(resultSet.getString("username"));
@@ -60,8 +59,20 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public int insertUser(User user) {
-        return 0;
+    public int insertUser(User user) throws Exception {
+        /*
+        * TODO:// sql的拼接是否可以在dto的class里面提供一个方法来实现？
+        *  DBUtils.executeInsert的...params是否也可以通过dto的一个方法返回？
+        */
+        String sql = "insert into users (username,email,birthdate,is_active) values (?,?,?,?)";
+        int result = -1;
+        try {
+            result = DBUtils.executeInsert(sql, user.getUsername(), user.getEmail(), user.getBirthdate(), user.getIsActive());
+        } catch (SQLException e) {
+            throw e;
+        }
+
+        return result;
     }
 
     @Override

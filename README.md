@@ -58,9 +58,10 @@
 ## 项目TODO
 1. gui功能界面的开发
 2. 在utils中封装log工具类，工具类的实现是否适合使用单例模式？
-3. model的getter和sette如何快速生成？使用idea的generate方式或者第三方封装好的库？  
+3. model的getter和setter如何快速生成？使用idea的generate方式或者第三方封装好的库？  
 4. 思考如何实现连接池
 5. 思考如何将ResultSet的数据转成Java对象，如BeanUtil如何实现，需要用到反射和annotation么？
 6. 数据库事务，如何实现？
+7. 如何使用junit框架进行简单的功能测试，如测试jdbc是否连接成功
 
 ## 项目管理与协同开发
