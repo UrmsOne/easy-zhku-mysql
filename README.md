@@ -61,5 +61,6 @@
 3. model的getter和sette如何快速生成？使用idea的generate方式或者第三方封装好的库？  
 4. 思考如何实现连接池
 5. 思考如何将ResultSet的数据转成Java对象，如BeanUtil如何实现，需要用到反射和annotation么？
+6. 数据库事务，如何实现？
 
 ## 项目管理与协同开发
