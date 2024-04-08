@@ -10,6 +10,7 @@ package cn.zhku.easy.utils;
 import java.sql.*;
 
 public class DBUtils {
+    // TODO://把数据库配置信息写到配置文件
     private static final String URL = "jdbc:mysql://localhost:3311/zhku_mysql";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "123456";

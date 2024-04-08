@@ -19,15 +19,21 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        // 通过id查询用户信息
         UserDao userDao = new UserDaoImpl();
-//        User user = userDao.getUserByID(1);
-//        System.out.println(user.toString());
-//        List<User> users = new ArrayList<>();
-//        UserQueryParam queryParam = new UserQueryParam();
-//        queryParam.setPage(1);
-//        queryParam.setTotal(4);
-//        users = userDao.getList(queryParam);
-//        System.out.println(users.toString());
+        User user = userDao.getUserByID(1);
+        System.out.println(user.toString());
+        // 获取用户信息列表，实现分页
+        List<User> users = new ArrayList<>();
+        UserQueryParam queryParam = new UserQueryParam();
+        queryParam.setPage(1);
+        queryParam.setTotal(4);
+        users = userDao.getList(queryParam);
+        System.out.println(users.toString());
+    }
+
+    public static void insertUser() throws Exception{
+        UserDao userDao = new UserDaoImpl();
         User user = new User();
         user.setUsername("handsome");
         user.setEmail("hahaha@163.com");
