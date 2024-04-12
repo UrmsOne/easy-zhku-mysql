@@ -59,11 +59,30 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public User getUserByName(String name) throws Exception {
+        User user = null;
+        String sql = "select * from users where username = ?";
+        try (ResultSet resultSet = DBUtils.executeQuery(sql, name)) {
+            if (resultSet.next()) {
+                // TODO://如何接入Javabean来实现数据库字段与对象属性的自动转换？
+                user = new User();
+                user.setId(resultSet.getLong("id"));
+                user.setUsername(resultSet.getString("username"));
+                user.setPassword(resultSet.getString("password"));
+                user.setEmail(resultSet.getString("email"));
+                user.setBirthdate(resultSet.getDate("birthdate"));
+                user.setIsActive(resultSet.getInt("is_active"));
+            }
+        }
+        return user;
+    }
+
+    @Override
     public int insertUser(User user) throws Exception {
         /*
-        * TODO:// sql的拼接是否可以在dto的class里面提供一个方法来实现？
-        *  DBUtils.executeInsert的...params是否也可以通过dto的一个方法返回？
-        */
+         * TODO:// sql的拼接是否可以在dto的class里面提供一个方法来实现？
+         *  DBUtils.executeInsert的...params是否也可以通过dto的一个方法返回？
+         */
         String sql = "insert into users (username,email,birthdate,is_active) values (?,?,?,?)";
         int result = -1;
         try {

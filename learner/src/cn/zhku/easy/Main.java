@@ -10,6 +10,7 @@ package cn.zhku.easy;
 import cn.zhku.easy.dao.user.UserDao;
 import cn.zhku.easy.dao.user.impl.UserDaoImpl;
 import cn.zhku.easy.dto.UserQueryParam;
+import cn.zhku.easy.gui.component.LoginFrame;
 import cn.zhku.easy.model.User;
 import cn.zhku.easy.utils.DBUtils;
 
@@ -19,6 +20,11 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+//        checkUserQuery();
+        LoginFrame loginFrame = new LoginFrame();
+        loginFrame.setVisible(true);
+    }
+    public static void checkUserQuery()throws Exception{
         // 通过id查询用户信息
         UserDao userDao = new UserDaoImpl();
         User user = userDao.getUserByID(1);

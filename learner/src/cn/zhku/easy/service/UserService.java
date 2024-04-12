@@ -13,5 +13,6 @@ public interface UserService {
     /*
     * 根据id查询用户信息
     * */
-    User getUser(long id);
+    User getUserById(long id) throws Exception;
+    User getUserByName(String name) throws Exception;
 }

@@ -21,6 +21,8 @@ public interface UserDao {
 
     User getUserByID(long id) throws Exception;
 
+    User getUserByName(String name) throws Exception;
+
     int insertUser(User user) throws Exception;
 
     int deleteUserByID(long id) throws Exception;

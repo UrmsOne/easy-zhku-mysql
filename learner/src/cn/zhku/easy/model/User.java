@@ -13,6 +13,7 @@ import java.util.Date;
 public class User implements Serializable {
     private long id;
     private String username;
+    private String password; //一般情况保存的是秘密的hash值
     private String email;
     private Date birthdate;
     private int IsActive;
@@ -57,11 +58,20 @@ public class User implements Serializable {
         IsActive = isActive;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", birthdate=" + birthdate +
                 ", IsActive=" + IsActive +
